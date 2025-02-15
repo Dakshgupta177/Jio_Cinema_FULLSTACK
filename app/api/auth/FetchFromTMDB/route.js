@@ -1,13 +1,8 @@
 import axios from "axios";
 
 export const FetchFromTMDB = async (url) => {
-    const options = {
-      headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer ' + process.env.TMDB_KEY},
-    };
     
-    const response = await axios.get(url,options);
+    const response = await axios.get(url);
   
     if(response.status !== 200){
       throw new Error(response.data.message)
@@ -15,3 +10,4 @@ export const FetchFromTMDB = async (url) => {
     
     return response.data
   }
+export {FetchFromTMDB as GET};
