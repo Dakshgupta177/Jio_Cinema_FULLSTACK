@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { FetchFromTMDB } from "../../api/auth/FetchFromTMDB/route";
+import { FetchFromTMDB } from "../../components/FetchFromTMDB";
 import Link from "next/link";
 
 const videos = () => {

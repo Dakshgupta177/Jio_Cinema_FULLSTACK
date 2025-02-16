@@ -1,10 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { FetchFromTMDB } from "../api/auth/FetchFromTMDB/route";
-import Image from "next/image";
+import { FetchFromTMDB } from "./FetchFromTMDB";
 import Link from "next/link";
-import { set } from "mongoose";
+
 
 const Manager = () => {
   const [mainmovies, setmainmovies] = useState([]);
@@ -44,7 +43,6 @@ const Manager = () => {
       console.log(error);
     }
   };
-  console.log(movies);
 
   useEffect(() => {
     if (count < 20) {
@@ -142,7 +140,6 @@ const Manager = () => {
             className="div contents"
           >
             <img
-              onClick={() => console.log(item.id)}
               src={Org_url + item.backdrop_path}
               alt=""
               className="m-2 rounded-lg max-xl:w-[90vw] max-h-[65vh] "

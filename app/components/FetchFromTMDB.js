@@ -10,12 +10,9 @@ export const FetchFromTMDB = async (url) => {
     },
   };
   const response = await axios.get(url, options);
-  console.log(response);
-
   if (response.status !== 200) {
     throw new Error(response.data.message);
   }
 
   return response.data;
 };
-

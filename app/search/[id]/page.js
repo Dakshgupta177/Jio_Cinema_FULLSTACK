@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { FetchFromTMDB } from "../../api/auth/FetchFromTMDB/route";
+import { FetchFromTMDB } from "../../components/FetchFromTMDB";
 import Link from "next/link";
 const search = () => {
   const Org_url = "https://image.tmdb.org/t/p/original";
@@ -11,7 +11,6 @@ const search = () => {
     const data = await FetchFromTMDB(
       `https://api.themoviedb.org/3/search/movie?query=${params.id}&include_adult=false&language=en-US&page=1`
     );
-    console.log(data);
     setsearchmov(data.results);
   };
   useEffect(() => {

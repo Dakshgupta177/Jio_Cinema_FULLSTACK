@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/api/auth/FetchFromTMDB/route.js"  ],
+, "app/components/FetchFromTMDB.js"  ],
   "exclude": [
     "node_modules"
   ]

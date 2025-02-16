@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { FetchFromTMDB } from "../api/auth/FetchFromTMDB/route";
+import { FetchFromTMDB } from "../components/FetchFromTMDB";
 const shows = () => {
   const Org_url = "https://image.tmdb.org/t/p/original";
   const [popshows, setpopshows] = useState([]);
