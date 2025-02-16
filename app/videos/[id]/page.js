@@ -78,7 +78,7 @@ const videos = () => {
                         className="div contents"
                       >
                         <img
-                          onClick={() => console.log(item.id)}
+                        
                           src={Org_url + item.poster_path}
                           alt=""
                           className="m-2 h-48 rounded-lg"

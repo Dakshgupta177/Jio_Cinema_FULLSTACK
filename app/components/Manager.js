@@ -136,9 +136,7 @@ const Manager = () => {
       <div className="main hide-scrollbar flex overflow-scroll overflow-y-hidden bg-black ">
         {mainmovies.slice(1, 10).map((item) => (
           <Link
-            onClick={() => {
-              loader();
-            }}
+            
             href={`/videos/${item.id}`}
             key={item.id}
             className="div contents"
