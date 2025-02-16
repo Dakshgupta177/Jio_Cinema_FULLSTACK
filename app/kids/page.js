@@ -14,22 +14,22 @@ const kids = () => {
   const [motu, setmotu] = useState([]);
   const getmovie = async () => {
     const bheem = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=chhota bheem&include_adult=false&language=en-US&page=1&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/search/movie?query=chhota bheem&include_adult=false&language=en-US&page=1`
     );
     const ninja = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=ninja hattori&include_adult=false&language=en-US&page=1&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/search/movie?query=ninja hattori&include_adult=false&language=en-US&page=1`
     );
     const shinchan = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=shinchan&include_adult=false&language=en-US&page=1&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/search/movie?query=shinchan&include_adult=false&language=en-US&page=1`
     );
     const pokemon = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=pokemon&include_adult=false&language=en-US&page=1&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/search/movie?query=pokemon&include_adult=false&language=en-US&page=1`
     );
     const tom = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=tom and jerry&include_adult=false&language=en-US&page=1&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/search/movie?query=tom and jerry&include_adult=false&language=en-US&page=1`
     );
     const motu = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=motu patlu&include_adult=false&language=en-US&page=1&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/search/movie?query=motu patlu&include_adult=false&language=en-US&page=1`
     );
     setchhotabheem(bheem.results);
     setninja(ninja.results);

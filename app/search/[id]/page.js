@@ -9,7 +9,7 @@ const search = () => {
   const [searchmov, setsearchmov] = useState([]);
   const getmovie = async () => {
     const data = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=${params.id}&include_adult=false&language=en-US&page=1&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/search/movie?query=${params.id}&include_adult=false&language=en-US&page=1`
     );
     console.log(data);
     setsearchmov(data.results);

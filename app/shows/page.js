@@ -1,27 +1,25 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import Link from "next/link";
 import { FetchFromTMDB } from "../api/auth/FetchFromTMDB/route";
 const shows = () => {
   const Org_url = "https://image.tmdb.org/t/p/original";
-  const params = useParams();
   const [popshows, setpopshows] = useState([]);
   const [nowshows, setnowshows] = useState([]);
   const [topshows, settopshows] = useState([]);
   const [upcomshows, setupcomshows] = useState([]);
   const Getshows = async () => {
     const pop = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=1&sort_by=popularity.desc&with_original_language=hi&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=1&sort_by=popularity.desc&with_original_language=hi`
     );
     const now = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=2&sort_by=popularity.desc&with_original_language=hi&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=2&sort_by=popularity.desc&with_original_language=hi`
     );
     const top = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=3&sort_by=popularity.desc&with_original_language=hi&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=3&sort_by=popularity.desc&with_original_language=hi`
     );
     const upcom = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=4&sort_by=popularity.desc&with_original_language=hi&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=4&sort_by=popularity.desc&with_original_language=hi`
     );
     setpopshows(pop.results);
     setnowshows(now.results);

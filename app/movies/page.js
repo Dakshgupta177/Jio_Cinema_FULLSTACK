@@ -1,27 +1,25 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import Link from "next/link";
 import { FetchFromTMDB } from "../api/auth/FetchFromTMDB/route";
 const Movies = () => {
   const Org_url = "https://image.tmdb.org/t/p/original";
-  const params = useParams();
   const [popmov, setpopmov] = useState([]);
   const [nowmov, setnowmov] = useState([]);
   const [topmov, settopmov] = useState([]);
   const [upcommov, setupcommov] = useState([]);
   const Getmovies = async () => {
     const pop = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/popular?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/movie/popular?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`
     );
     const now = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/now_playing?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/movie/now_playing?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`
     );
     const top = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/top_rated?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/movie/top_rated?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`
     );
     const upcom = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/upcoming?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi&api_key=b928fb32e76f59320df198f9e354b7a3`
+      `https://api.themoviedb.org/3/movie/upcoming?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`
     );
     setpopmov(pop.results);
     setnowmov(now.results);

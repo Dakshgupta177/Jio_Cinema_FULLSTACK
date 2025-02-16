@@ -22,7 +22,7 @@ const Manager = () => {
     try {
       const r = Math.floor(Math.random() * 200) + 1;
       const data = await FetchFromTMDB(
-        `https://api.themoviedb.org/3/discover/movie?page=${r}&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi&api_key=b928fb32e76f59320df198f9e354b7a3`
+        `https://api.themoviedb.org/3/discover/movie?page=${r}&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`
       );
       setmovies((prevItems) => {
         return [...prevItems, ...data.results];
@@ -34,7 +34,7 @@ const Manager = () => {
   const GetMainMovies = async () => {
     try {
       const data = await FetchFromTMDB(
-        `https://api.themoviedb.org/3/discover/movie?page=1&primary_release_date.gte=2023-10-08&sort_by=popularity.desc&with_original_language=hi&api_key=b928fb32e76f59320df198f9e354b7a3`
+        `https://api.themoviedb.org/3/discover/movie?page=1&primary_release_date.gte=2023-10-08&sort_by=popularity.desc&with_original_language=hi`
       );
 
       setmainmovies((prevItems) => {
