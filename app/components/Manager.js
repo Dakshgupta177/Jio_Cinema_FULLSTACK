@@ -126,8 +126,8 @@ const Manager = () => {
             {item.title}
           </Link>
         ))}
-        <div className="black absolute right-0 h-20 w-16 bg-black"></div>
-        <div className="black absolute left-0 h-20 w-16 bg-black"></div>
+        <div className="black absolute right-0 h-20 w-16 max-lg:w-6 bg-black"></div>
+        <div className="black absolute left-0 h-20 w-16 max-lg:w-6 bg-black"></div>
       </div>
       <div className="break h-px bg-gray-500"></div>
 
