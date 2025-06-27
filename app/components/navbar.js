@@ -38,23 +38,13 @@ const Navbar = () => {
             </div>
             <div className="flex h-16 items-center justify-between bg-black">
               <div className="right-0 flex items-center">
-                <Link href={"/"}>
-                  <img
-                    src="https://www.jiocinema.com/images/payments/jio-logo.png"
-                    alt=""
-                    className="m-3 h-10 md:hidden "
-                  />
-                </Link>
-
-                <Link href={"/"} className="img p-3 max-md:hidden">
-                  <img
-                    src="https://www.jiocinema.com/images/jc_logo_v2.svg"
-                    alt=""
-                  />
-                </Link>
-                <div className="premium flex h-7 w-24 items-center justify-center rounded-2xl border border-yellow-400 text-sm font-medium text-yellow-400">
-                  Go Premium
-                </div>
+                <Link href={"/"} className="div">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Reliance_Jio_Logo.svg/500px-Reliance_Jio_Logo.svg.png"
+                  alt=""
+                  className="m-3 h-10 "
+                />
+              </Link>
                 <div className="flex max-md:hidden">
                   <Link
                     className="nav_items p-2 font-medium text-white"
@@ -83,11 +73,11 @@ const Navbar = () => {
                 </div>
               </div>
               <div className="right flex items-center justify-center">
-                <div className="lg:hidden text-white">
+                {/* <div className="lg:hidden text-white">
                   <FaSearch />
-                </div>
+                </div> */}
 
-                <div className="searchbar bg-op flex h-11 w-80 items-center justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-lg:hidden">
+                <div className="searchbar bg-op flex h-11 w-80 items-center justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-sm:w-56 max-sm:text-sm ">
                   <Link href={`/search/${search}`} className="">
                     <FaSearch />
                   </Link>
@@ -101,7 +91,7 @@ const Navbar = () => {
                     className="bg-gray-600 focus:outline-none"
                     onKeyDown={searchOnEnter}
                   />
-                  <FaMicrophone />
+                  <FaMicrophone className="max-sm:hidden"/>
                 </div>
                 <Link
                   className="contacts m-4 flex h-10 w-10 items-center justify-center rounded-full bg-gray-600 text-2xl text-white"
@@ -134,20 +124,11 @@ const Navbar = () => {
             <div className="right-0 flex items-center">
               <Link href={"/"} className="div">
                 <img
-                  src="https://www.jiocinema.com/images/payments/jio-logo.png"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Reliance_Jio_Logo.svg/500px-Reliance_Jio_Logo.svg.png"
                   alt=""
-                  className="m-3 h-10 md:hidden"
+                  className="m-3 h-10 "
                 />
               </Link>
-              <Link href={"/"} className="img p-3 max-md:hidden">
-                <img
-                  src="https://www.jiocinema.com/images/jc_logo_v2.svg"
-                  alt=""
-                />
-              </Link>
-              <div className="premium flex h-7 w-24 items-center justify-center rounded-2xl border border-yellow-400 text-sm font-medium text-yellow-400">
-                Go Premium
-              </div>
               <div className="flex max-md:hidden">
                 <Link className="nav_items p-2 font-medium text-white" href="">
                   Home
@@ -173,17 +154,26 @@ const Navbar = () => {
               </div>
             </div>
             <div className="right flex items-center justify-center">
-              <div className="lg:hidden text-white">
+              {/* <div className="lg:hidden text-white">
                 <FaSearch />
-              </div>
+              </div> */}
 
-              <div className="searchbar bg-op flex h-11 w-80 items-center justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-lg:hidden">
-                <div className="">
-                  <FaSearch />
+              <div className="searchbar bg-op flex h-11 w-80 items-center justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-sm:w-56 max-sm:text-sm ">
+                  <Link href={`/search/${search}`} className="">
+                    <FaSearch />
+                  </Link>
+                  <input
+                    onChange={handlechange}
+                    type="text"
+                    name=""
+                    placeholder="Movies, Shows and more"
+                    id="5"
+                    value={search}
+                    className="bg-gray-600 focus:outline-none"
+                    onKeyDown={searchOnEnter}
+                  />
+                  <FaMicrophone className="max-sm:hidden"/>
                 </div>
-                <p>Movies, Shows and more</p>
-                <FaMicrophone />
-              </div>
 
               <Link
                 href={"/login"}

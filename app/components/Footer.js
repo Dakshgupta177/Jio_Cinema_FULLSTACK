@@ -57,7 +57,7 @@ const Footer = () => {
           Copyright &copy; Star India Private Limited, 2024. All rights reserved.
         </p>
         <img
-          src="https://www.jiocinema.com/images/payments/jio-logo.png"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Reliance_Jio_Logo.svg/500px-Reliance_Jio_Logo.svg.png"
           alt=""
           className="mr-5 h-12"
         />
