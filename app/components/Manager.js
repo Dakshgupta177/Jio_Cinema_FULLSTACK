@@ -73,7 +73,7 @@ const Manager = () => {
   ];
 
   return movies.length >= 120 ? (
-    <div>
+    <div loading="lazy">
       <div className="fixed flex justify-center items-center z-50 top-[50vh] left-[50vw]">
         {loading && (
         <img
@@ -148,7 +148,6 @@ const Manager = () => {
         "Popular ",
         "Top trending",
         "New Releases",
-        "Continue Watching",
       ].map((title, index) => (
         <div key={index} className="bg-black p-4 text-xl font-bold text-white">
           <h1 className="mb-4 ml-8">{title}</h1>
@@ -174,7 +173,13 @@ const Manager = () => {
     </div>
   ) : (
     <div className="h-screen bg-black text-white text-8xl">
-      <div className="size-12 absolute top-[50vh] left-[50vw] rounded-full  border-t-white border-black border-t-4  animate-spin border-r  "></div>
+      {loading && (
+        <img
+          src="https://i.gifer.com/ZKZg.gif"
+          className="size-12 fixed top-1/2 left-1/2 z-50"
+          alt="Loading..."
+        />
+      )}
     </div>
   );
 };

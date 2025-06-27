@@ -45,7 +45,10 @@ const videos = () => {
           {video && info ? (
             <>
               <div className="flex justify-center py-5 flex-col items-center">
-                <iframe className="h-[75vh] w-[100vw] max-sm:h-[50vh]" src={video}></iframe>
+                <iframe
+                  className="h-[75vh] w-[100vw] max-sm:h-[50vh]"
+                  src={video}
+                ></iframe>
                 <h3 className="text-white text-2xl m-4">
                   {info.original_title}
                 </h3>
@@ -78,7 +81,6 @@ const videos = () => {
                         className="div contents"
                       >
                         <img
-                        
                           src={Org_url + item.poster_path}
                           alt=""
                           className="m-2 h-48 rounded-lg"
@@ -103,7 +105,11 @@ const videos = () => {
         </>
       ) : (
         <div className="h-screen bg-black text-white text-8xl">
-          <div className="size-12 fixed top-[50vh] left-[50vw] rounded-full  border-t-white border-black border-t-4  animate-spin border-r  "></div>
+          <img
+            src="https://i.gifer.com/ZKZg.gif"
+            className="size-12 fixed top-1/2 left-1/2 z-50"
+            alt="Loading..."
+          />
         </div>
       )}
     </div>

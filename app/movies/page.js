@@ -29,7 +29,7 @@ const Movies = () => {
   useEffect(() => {
     Getmovies();
   }, []);
-  return popmov.length>0 ? (
+  return popmov.length > 0 ? (
     <div className="">
       <h2 className="text-3xl font-bold text-white px-12">Popular</h2>
       <div className="hide-scrollbar flex overflow-scroll bg-black p-2 text-white">
@@ -146,7 +146,11 @@ const Movies = () => {
     </div>
   ) : (
     <div className="h-screen bg-black text-white text-8xl">
-      <div className="size-12 absolute top-[50vh] left-[50vw] rounded-full  border-t-white border-black border-t-4  animate-spin border-r  "></div>
+        <img
+          src="https://i.gifer.com/ZKZg.gif"
+          className="size-12 fixed top-1/2 left-1/2 z-50"
+          alt="Loading..."
+        />
     </div>
   );
 };

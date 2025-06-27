@@ -46,7 +46,13 @@ const search = () => {
     </div>
   ) : (
     <div className="h-screen bg-black text-white text-8xl">
-      <div className="size-12 fixed top-[50vh] left-[50vw] rounded-full  border-t-white border-black border-t-4  animate-spin border-r  "></div>
+      
+        <img
+          src="https://i.gifer.com/ZKZg.gif"
+          className="size-12 fixed top-1/2 left-1/2 z-50"
+          alt="Loading..."
+        />
+      
     </div>
   );
 };

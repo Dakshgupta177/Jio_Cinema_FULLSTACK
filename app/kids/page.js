@@ -37,7 +37,6 @@ const kids = () => {
     setpokemon(pokemon.results);
     settom(tom.results);
     setmotu(motu.results);
-    
   };
   useEffect(() => {
     getmovie();
@@ -46,7 +45,7 @@ const kids = () => {
     <div className="">
       <h2 className="text-3xl font-bold text-white px-12">Pokemon</h2>
       <div className="hide-scrollbar flex overflow-scroll bg-black p-2 text-white">
-        { pokemon.map((item) => {
+        {pokemon.map((item) => {
           return (
             item.poster_path && (
               <div
@@ -215,7 +214,11 @@ const kids = () => {
     </div>
   ) : (
     <div className="h-screen bg-black text-white text-8xl">
-      <div className="size-12 absolute top-[50vh] left-[50vw] rounded-full  border-t-white border-black border-t-4  animate-spin border-r  "></div>
+        <img
+          src="https://i.gifer.com/ZKZg.gif"
+          className="size-12 fixed top-1/2 left-1/2 z-50"
+          alt="Loading..."
+        />
     </div>
   );
 };
