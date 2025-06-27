@@ -77,8 +77,8 @@ const Navbar = () => {
                   <FaSearch />
                 </div> */}
 
-                <div className="searchbar bg-op flex h-11 w-80 items-center justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-sm:w-56 max-sm:text-sm ">
-                  <Link href={`/search/${search}`} className="">
+                <div className="searchbar bg-op flex h-11 w-80 items-center sm:justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-sm:w-52 max-sm:text-sm ">
+                  <Link href={`/search/${search}`} className="mr-2">
                     <FaSearch />
                   </Link>
                   <input
@@ -158,8 +158,8 @@ const Navbar = () => {
                 <FaSearch />
               </div> */}
 
-              <div className="searchbar bg-op flex h-11 w-80 items-center justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-sm:w-56 max-sm:text-sm ">
-                  <Link href={`/search/${search}`} className="">
+              <div className="searchbar bg-op flex h-11 w-80 items-center sm:justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-sm:w-52 max-sm:text-sm ">
+                  <Link href={`/search/${search}`} className="mr-2">
                     <FaSearch />
                   </Link>
                   <input
