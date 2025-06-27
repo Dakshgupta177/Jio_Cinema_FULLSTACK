@@ -77,7 +77,7 @@ const Navbar = () => {
                   <FaSearch />
                 </div> */}
 
-                <div className="searchbar bg-op flex h-11 w-80 items-center sm:justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-sm:w-52 max-sm:text-sm ">
+                <div className="searchbar bg-op flex h-11 w-80 items-center sm:justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-sm:w-52 max-sm:text-sm overflow-hidden">
                   <Link href={`/search/${search}`} className="mr-2">
                     <FaSearch />
                   </Link>
@@ -85,7 +85,7 @@ const Navbar = () => {
                     onChange={handlechange}
                     type="text"
                     name=""
-                    placeholder="Movies,Shows"
+                    placeholder="Movies, Shows and more"
                     id="5"
                     value={search}
                     className="bg-gray-600 focus:outline-none inline"
@@ -158,7 +158,7 @@ const Navbar = () => {
                 <FaSearch />
               </div> */}
 
-              <div className="searchbar bg-op flex h-11 w-80 items-center sm:justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-sm:w-52 max-sm:text-sm ">
+              <div className="searchbar bg-op flex h-11 w-80 items-center sm:justify-between rounded-full bg-gray-600 p-5 text-gray-300 max-sm:w-52 max-sm:text-sm overflow-hidden">
                   <Link href={`/search/${search}`} className="mr-2">
                     <FaSearch />
                   </Link>
@@ -166,7 +166,7 @@ const Navbar = () => {
                     onChange={handlechange}
                     type="text"
                     name=""
-                    placeholder="Movies,Shows"
+                    placeholder="Movies, Shows and more"
                     id="5"
                     value={search}
                     className="bg-gray-600 focus:outline-none inline"
