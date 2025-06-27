@@ -85,10 +85,10 @@ const Navbar = () => {
                     onChange={handlechange}
                     type="text"
                     name=""
-                    placeholder="Movies, Shows and more"
+                    placeholder="Movies,Shows"
                     id="5"
                     value={search}
-                    className="focus:outline-none inline"
+                    className="bg-gray-600 focus:outline-none inline"
                     onKeyDown={searchOnEnter}
                   />
                   <FaMicrophone className="max-sm:hidden"/>
@@ -166,10 +166,10 @@ const Navbar = () => {
                     onChange={handlechange}
                     type="text"
                     name=""
-                    placeholder="Movies, Shows and more"
+                    placeholder="Movies,Shows"
                     id="5"
                     value={search}
-                    className="focus:outline-none inline"
+                    className="bg-gray-600 focus:outline-none inline"
                     onKeyDown={searchOnEnter}
                   />
                   <FaMicrophone className="max-sm:hidden"/>
