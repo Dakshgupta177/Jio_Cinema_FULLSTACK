@@ -9,15 +9,11 @@ const Manager = () => {
   const [mainmovies, setmainmovies] = useState([]);
   const [movies, setmovies] = useState([]);
   const [count, setCount] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const Org_url = "https://image.tmdb.org/t/p/original";
-  const handleClick = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  };
+
   const GetMovies = async () => {
+    setLoading(true)
     try {
       const r = Math.floor(Math.random() * 200) + 1;
       const data = await FetchFromTMDB(
@@ -28,9 +24,12 @@ const Manager = () => {
       });
     } catch (error) {
       console.log(error);
+    } finally{
+      setLoading(false)
     }
   };
   const GetMainMovies = async () => {
+    setLoading(true);
     try {
       const data = await FetchFromTMDB(
         `https://api.themoviedb.org/3/discover/movie?page=1&primary_release_date.gte=2023-10-08&sort_by=popularity.desc&with_original_language=hi`
@@ -41,6 +40,8 @@ const Manager = () => {
       });
     } catch (error) {
       console.log(error);
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -71,49 +72,16 @@ const Manager = () => {
     { title: "TV and Movies", id: uuidv4() },
   ];
 
-  const channels = [
-    {
-      src: "https://v3img.voot.com/resizeMedium,w_230,h_230/v3Storage/assets/colors-hindirevised-1734374133792.png",
-      id: uuidv4(),
-    },
-    {
-      src: "https://v3img.voot.com/resizeMedium,w_180,h_180/v3Storage/assets/mtv-1727006354793.jpg",
-      id: uuidv4(),
-    },
-    {
-      src: "https://v3img.voot.com/resizeMedium,w_180,h_180/v3Storage/assets/colors-kannada-1727002458804.jpg",
-      id: uuidv4(),
-    },
-    {
-      src: "https://v3img.voot.com/resizeMedium,w_180,h_180/v3Storage/assets/nick-1727006404112.jpg",
-      id: uuidv4(),
-    },
-    {
-      src: "https://v3img.voot.com/resizeMedium,w_180,h_180/v3Storage/assets/peacock-hub-1727008274306.jpg",
-      id: uuidv4(),
-    },
-    {
-      src: "https://v3img.voot.com/resizeMedium,w_180,h_180/v3Storage/assets/hbo-1732452145408.jpg",
-      id: uuidv4(),
-    },
-    {
-      src: "https://v3img.voot.com/resizeMedium,w_180,h_180/v3Storage/assets/colors-marathi-1727006494654.jpg",
-      id: uuidv4(),
-    },
-    {
-      src: "https://v3img.voot.com/resizeMedium,w_180,h_180/v3Storage/assets/colors-infinity-1727257439757.jpg",
-      id: uuidv4(),
-    },
-  ];
-
   return movies.length >= 120 ? (
-    <div onClick={handleClick}>
+    <div>
       <div className="fixed flex justify-center items-center z-50 top-[50vh] left-[50vw]">
-        <div
-          className={`w-16 h-16  border-t-[5px] border-white border-solid rounded-full animate-spin ${
-            loading ? "" : "hidden"
-          }`}
-        ></div>
+        {loading && (
+        <img
+          src="https://i.gifer.com/ZKZg.gif"
+          className="size-12 fixed top-1/2 left-1/2 z-50"
+          alt="Loading..."
+        />
+      )}
       </div>
       <div className="break h-px bg-gray-500"></div>
       <div className="suggestions hide-scrollbar flex h-20 items-center overflow-scroll bg-black pl-16 max-w-none max-lg:font-normal max-lg:text-sm ">

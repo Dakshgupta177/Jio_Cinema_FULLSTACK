@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { redirect } from 'next/navigation'
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 const profile = () => {
   const { data: session } = useSession();

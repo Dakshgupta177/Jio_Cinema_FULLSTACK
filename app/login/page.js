@@ -26,12 +26,12 @@ const login = () => {
         >
           <FaGoogle className="m-2 mt-3 size-5"/> Sign Up With Google
         </Link>
-        <div
+        {/* <div
           className="bg-white w-64 m-3 rounded-lg p-4 text-center flex justify-center items-center "
           onClick={() => signIn("google")}
         >
           <FaFacebookSquare className="m-2 mt-3 size-5"/> Sign Up With Facebook
-        </div>
+        </div> */}
       </div>
     );
   } else {

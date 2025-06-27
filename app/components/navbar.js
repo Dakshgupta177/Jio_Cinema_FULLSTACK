@@ -1,14 +1,11 @@
 "use client";
-import { v4 as uuidv4 } from "uuid";
 import { FaSearch } from "react-icons/fa";
 import { FaMicrophone } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
-import { FaAngleDown } from "react-icons/fa";
 import React from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
-import { redirect } from "next/dist/server/api-utils";
 import { useRouter } from "next/navigation";
 const Navbar = () => {
   const { data: session } = useSession();
@@ -18,15 +15,8 @@ const Navbar = () => {
   const searchOnEnter = (event) => {
     if (event.key === "Enter") {
       const searchQuery = event.target.value;
-      // alert("Searching for: " + searchQuery);
       router.push(`/search/${searchQuery}`);
     }
-  };
-  const handleClick = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
   };
   const handlechange = (e) => {
     setsearch(e.target.value);
@@ -36,13 +26,15 @@ const Navbar = () => {
     if (session) {
       return (
         <>
-          <nav className="fixed w-full z-50 bg-black" onClick={handleClick}>
+          <nav className="fixed w-full z-50 bg-black">
             <div className="fixed flex justify-center items-center z-50 top-[50vh] left-[50vw]">
-              <div
-                className={`w-16 h-16  border-t-[5px] border-white border-solid rounded-full animate-spin ${
-                  loading ? "" : "hidden"
-                }`}
-              ></div>
+              {loading && (
+                <img
+                  src="https://i.gifer.com/ZKZg.gif"
+                  className="size-12 fixed top-1/2 left-1/2 z-50"
+                  alt="Loading..."
+                />
+              )}
             </div>
             <div className="flex h-16 items-center justify-between bg-black">
               <div className="right-0 flex items-center">
@@ -84,7 +76,7 @@ const Navbar = () => {
                   </Link>
                   <Link
                     className="nav_items p-2 font-medium text-gray-300 focus:text-white"
-                    href={"shows"}
+                    href={"/shows"}
                   >
                     TV Shows
                   </Link>
@@ -128,13 +120,15 @@ const Navbar = () => {
       );
     } else {
       return (
-        <nav className="fixed w-full z-50 bg-black" onClick={handleClick}>
+        <nav className="fixed w-full z-50 bg-black">
           <div className="fixed flex justify-center items-center z-50 top-[50vh] left-[50vw]">
-            <div
-              className={`w-16 h-16  border-t-[5px] border-white border-solid rounded-full animate-spin ${
-                loading ? "" : "hidden"
-              }`}
-            ></div>
+            {loading && (
+              <img
+                src="https://i.gifer.com/ZKZg.gif"
+                className="size-12 fixed top-1/2 left-1/2 z-50"
+                alt="Loading..."
+              />
+            )}
           </div>
           <div className="flex h-16 items-center justify-between bg-black">
             <div className="right-0 flex items-center">
