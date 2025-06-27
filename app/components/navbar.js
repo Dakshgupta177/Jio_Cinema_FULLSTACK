@@ -88,7 +88,7 @@ const Navbar = () => {
                     placeholder="Movies, Shows and more"
                     id="5"
                     value={search}
-                    className="bg-gray-600 focus:outline-none"
+                    className="bg-gray-600 focus:outline-none inline"
                     onKeyDown={searchOnEnter}
                   />
                   <FaMicrophone className="max-sm:hidden"/>
@@ -169,7 +169,7 @@ const Navbar = () => {
                     placeholder="Movies, Shows and more"
                     id="5"
                     value={search}
-                    className="bg-gray-600 focus:outline-none"
+                    className="bg-gray-600 focus:outline-none inline"
                     onKeyDown={searchOnEnter}
                   />
                   <FaMicrophone className="max-sm:hidden"/>
