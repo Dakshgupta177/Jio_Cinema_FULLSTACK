@@ -1,6 +1,8 @@
+
 # 🎥 JIO_CINEMA_FULLSTACK
 
 _**Stream Your Imagination, Anytime, Anywhere, Seamlessly**_
+
 
 ---
 
@@ -54,8 +56,8 @@ This project empowers developers to build robust, multimedia-rich web applicatio
 
 Ensure you have the following installed:
 
-- Node.js `>= 18`
-- npm / yarn
+- Node.js >= 18
+- npm or yarn
 - MongoDB Atlas account
 - TMDB API key
 
@@ -65,3 +67,61 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/your-username/JIO_CINEMA_FULLSTACK.git
    cd JIO_CINEMA_FULLSTACK
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Setup environment variables**
+   Create a `.env` file in the root and add your credentials:
+   ```env
+   MONGODB_URI=your_mongo_connection
+   TMDB_API_KEY=your_tmdb_key
+   NEXTAUTH_URL=http://localhost:3000
+   ```
+
+4. **Run the app**
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 🧪 Usage
+
+Visit:
+
+```
+http://localhost:3000
+```
+
+- Browse/search for movies and TV shows
+- Watch trailers (via YouTube)
+- Sign in with Google/GitHub
+- Access user profile and favorites
+
+---
+
+## ✅ Testing
+
+- Manual UI Testing
+- Postman API Tests
+- ESLint for linting
+
+> Automated testing support coming soon!
+
+---
+
+## 📫 Contact
+
+Made with ❤️ by **Your Name**  
+📧 Email: your-email@example.com  
+🌐 GitHub: [@your-username](https://github.com/your-username)
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License.
