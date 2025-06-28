@@ -116,9 +116,9 @@ http://localhost:3000
 
 ## 📫 Contact
 
-Made with ❤️ by **Your Name**  
-📧 Email: your-email@example.com  
-🌐 GitHub: [@your-username](https://github.com/your-username)
+Made with ❤️ by **Daksh Gupta**  
+📧 Email: dakshgupta2k7@gmail.com  
+🌐 GitHub: [@Dakshgupta177](https://github.com/Dakshgupta177)
 
 ---
 
