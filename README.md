@@ -2,10 +2,6 @@
 
 _**Stream Your Imagination, Anytime, Anywhere, Seamlessly**_
 
-![Last Commit](https://img.shields.io/github/last-commit/your-username/JIO_CINEMA_FULLSTACK?style=flat-square)
-![Languages](https://img.shields.io/github/languages/count/your-username/JIO_CINEMA_FULLSTACK?style=flat-square)
-![Top Language](https://img.shields.io/github/languages/top/your-username/JIO_CINEMA_FULLSTACK?style=flat-square)
-
 ---
 
 ### 🛠️ Built with the tools and technologies:
