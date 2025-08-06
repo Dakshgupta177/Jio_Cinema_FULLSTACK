@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaSearch, FaMicrophone, FaUserAlt } from "react-icons/fa";
+import { FaSearch, FaUserAlt } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -10,8 +10,6 @@ const Navbar = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(false);
-
   const searchOnEnter = (event) => {
     if (event.key === "Enter") {
       const searchQuery = event.currentTarget.value;
@@ -23,21 +21,8 @@ const Navbar = () => {
     setSearch(e.target.value);
   };
 
-  const LoaderOverlay = (
-    <div className="fixed flex justify-center items-center z-50 top-[50vh] left-[50vw]">
-      {loading && (
-        <img
-          src="https://i.gifer.com/ZKZg.gif"
-          className="size-12 fixed top-1/2 left-1/2 z-50"
-          alt="Loading..."
-        />
-      )}
-    </div>
-  );
-
   return session ? (
     <nav className="fixed w-full z-50 bg-black">
-      {LoaderOverlay}
       <div className="flex h-16 items-center justify-between bg-black">
         <div className="flex items-center">
           <Link href="/" className="div">
@@ -82,7 +67,7 @@ const Navbar = () => {
               type="text"
               placeholder="Movies, Shows and more"
               value={search}
-              className="bg-gray-600 focus:outline-none inline flex-1"
+              className="bg-gray-600 focus:outline-none inline flex-1 sm:text-center"
               onKeyDown={searchOnEnter}
             />
           </div>
@@ -101,7 +86,6 @@ const Navbar = () => {
     </nav>
   ) : (
     <nav className="fixed w-full z-50 bg-black">
-      {LoaderOverlay}
       <div className="flex h-16 items-center justify-between bg-black">
         <div className="flex items-center">
           <Link href="/" className="div">
@@ -146,7 +130,7 @@ const Navbar = () => {
               type="text"
               placeholder="Movies, Shows and more"
               value={search}
-              className="bg-gray-600 focus:outline-none inline flex-1 text-center"
+              className="bg-gray-600 focus:outline-none inline flex-1 sm:text-center"
               onKeyDown={searchOnEnter}
             />
           </div>

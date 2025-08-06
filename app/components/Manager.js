@@ -107,7 +107,7 @@ const Manager = () => {
         <div className="black absolute left-0 h-20 w-16 max-lg:w-6 bg-black"></div>
       </div>
       <div className="break h-px bg-gray-500"></div>
-      <div className="relative w-full h-[75vh] bg-black overflow-hidden">
+      <div className="relative w-full max-sm:h-[40vh] h-[75vh] bg-black overflow-hidden">
         {/* Buttons
         <motion.button
           whileHover={{ scale: 1.1 }}
@@ -141,7 +141,7 @@ const Manager = () => {
               key={item.id}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
-              className="relative flex-shrink-0 h-full w-auto"
+              className="relative flex-shrink-0 h-full w-auto max-sm:w-[100vw]"
             >
               <Link href={`/videos/${item.id}`}>
                 <img
