@@ -65,7 +65,7 @@ Ensure you have the following installed:
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/your-username/JIO_CINEMA_FULLSTACK.git
+   git clone https://github.com/Dakshgupta177/JIO_CINEMA_FULLSTACK.git
    cd JIO_CINEMA_FULLSTACK
    ```
 
