@@ -2,11 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { FetchFromTMDB } from "../../components/FetchFromTMDB";
-import Link from "next/link";
+import Carousel from "../../components/Carousel";
 
 const videos = () => {
   const params = useParams();
-  const Org_url = "https://image.tmdb.org/t/p/original";
   const [video, setvideo] = useState("");
   const [loading, setloading] = useState(false);
   const [simimovies, setsimimovies] = useState([]);
@@ -68,34 +67,7 @@ const videos = () => {
                 </div>
                 <p className="text-white m-4">{info.overview}</p>
               </div>
-              <div className="">
-                <h2 className="text-3xl m-6 font-semibold text-white">
-                  Similar Movies
-                </h2>
-                {simimovies.length !== 0 ? (
-                  <div className="hide-scrollbar flex overflow-scroll mb-10">
-                    {simimovies.map((item) => (
-                      <Link
-                        href={`/videos/${item.id}`}
-                        key={item.id}
-                        className="div contents"
-                      >
-                        <img
-                          src={Org_url + item.poster_path}
-                          alt=""
-                          className="m-2 h-48 rounded-lg"
-                        />
-                      </Link>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="text-white text-xl flex justify-center items-center mb-10">
-                    <h3 className="text-white text-xl text-center">
-                      No Similar Movies available
-                    </h3>
-                  </div>
-                )}
-              </div>
+              <Carousel title="Similar Movies" movies={simimovies} />
             </>
           ) : (
             <div className="text-white text-xl flex justify-center items-center mb-10 h-[60vh]">

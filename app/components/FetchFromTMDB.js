@@ -1,5 +1,4 @@
 import axios from "axios";
-import { configDotenv } from "dotenv";
 
 export const FetchFromTMDB = async (url) => {
   const options = {

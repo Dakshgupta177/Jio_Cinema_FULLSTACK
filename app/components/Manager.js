@@ -1,9 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { FetchFromTMDB } from "./FetchFromTMDB";
 import Link from "next/link";
-
+import { motion } from "motion/react";
+import Carousel from "./Carousel";
 
 const Manager = () => {
   const [mainmovies, setmainmovies] = useState([]);
@@ -11,28 +12,36 @@ const Manager = () => {
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const Org_url = "https://image.tmdb.org/t/p/original";
+  const ref = useRef();
+  const next = () => {
+    if (ref.current) ref.current.scrollLeft += 1000;
+  };
+
+  const prev = () => {
+    if (ref.current) ref.current.scrollLeft -= 1000;
+  };
 
   const GetMovies = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
-      const r = Math.floor(Math.random() * 200) + 1;
+      const r = Math.floor(Math.random() * 100) + 1;
       const data = await FetchFromTMDB(
-        `https://api.themoviedb.org/3/discover/movie?page=${r}&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`
+        `https://api.themoviedb.org/3/discover/movie?page=${r}&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&include_adult=false`
       );
       setmovies((prevItems) => {
         return [...prevItems, ...data.results];
       });
     } catch (error) {
       console.log(error);
-    } finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
   const GetMainMovies = async () => {
     setLoading(true);
     try {
       const data = await FetchFromTMDB(
-        `https://api.themoviedb.org/3/discover/movie?page=1&primary_release_date.gte=2023-10-08&sort_by=popularity.desc&with_original_language=hi`
+        `https://api.themoviedb.org/3/discover/movie?page=1&primary_release_date.gte=2023-10-08&sort_by=popularity.desc&with_original_language=hi&include_adult=false`
       );
 
       setmainmovies((prevItems) => {
@@ -40,8 +49,8 @@ const Manager = () => {
       });
     } catch (error) {
       console.log(error);
-    } finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -76,12 +85,12 @@ const Manager = () => {
     <div loading="lazy">
       <div className="fixed flex justify-center items-center z-50 top-[50vh] left-[50vw]">
         {loading && (
-        <img
-          src="https://i.gifer.com/ZKZg.gif"
-          className="size-12 fixed top-1/2 left-1/2 z-50"
-          alt="Loading..."
-        />
-      )}
+          <img
+            src="https://i.gifer.com/ZKZg.gif"
+            className="size-12 fixed top-1/2 left-1/2 z-50"
+            alt="Loading..."
+          />
+        )}
       </div>
       <div className="break h-px bg-gray-500"></div>
       <div className="suggestions hide-scrollbar flex h-20 items-center overflow-scroll bg-black pl-16 max-w-none max-lg:font-normal max-lg:text-sm ">
@@ -98,78 +107,61 @@ const Manager = () => {
         <div className="black absolute left-0 h-20 w-16 max-lg:w-6 bg-black"></div>
       </div>
       <div className="break h-px bg-gray-500"></div>
+      <div className="relative w-full h-[75vh] bg-black overflow-hidden">
+        {/* Buttons
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={prev}
+          className="absolute left-4 top-1/2 z-10 bg-black/60 px-4 py-2 text-white rounded-full"
+        >
+          ←
+        </motion.button>
 
-      <div className="main hide-scrollbar flex overflow-scroll overflow-y-hidden bg-black ">
-        {mainmovies.slice(1, 10).map((item) => (
-          <Link
-            
-            href={`/videos/${item.id}`}
-            key={item.id}
-            className="div contents"
-          >
-            <img
-              src={Org_url + item.backdrop_path}
-              alt=""
-              className="m-2 rounded-lg max-xl:w-[90vw] max-h-[65vh] "
-            />
-          </Link>
-        ))}
-      </div>
-
-      {/* <div className="hide-scrollbar flex h-40 overflow-scroll bg-black pl-4 pt-10">
-          {channels.map((item) => (
-            <div key={item.id} className="contents bg-white">
-              <img src={item.src} alt="" className="m-2 rounded" />
-            </div>
-          ))}
-        </div> */}
-
-      <div className="hide-scrollbar overflow-scroll bg-black p-4 text-xl font-bold text-white">
-        <h1 className="mb-4 ml-8">In The Spotlight</h1>
-        <div className="hide-scrollbar flex overflow-scroll">
-          {movies.slice(0, 20).map((item) => (
-            <Link
-              href={`/videos/${item.id}`}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={next}
+          className="absolute right-4 top-1/2 z-10 bg-black/60 px-4 py-2 text-white rounded-full"
+        >
+          →
+        </motion.button> */}
+        <motion.div
+          ref={ref}
+          className="hide-scrollbar flex gap-4 overflow-y-hidden pr-8 h-full w-[700vw]"
+          animate={{ x: ['0%', '-70%'] }} 
+        transition={{
+          duration: 30,
+          ease: 'linear',
+          repeat: Infinity,
+        }}
+        >
+          {mainmovies.filter((_,index) => index !== 1 && index !== 2).slice(0, 12).map((item) => (
+            <motion.div
               key={item.id}
-              className="div contents"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative flex-shrink-0 h-full w-auto"
             >
-              <img
-                onClick={() => console.log(item.id)}
-                src={Org_url + item.poster_path}
-                alt=""
-                className="m-2 h-48 rounded-lg"
-              />
-            </Link>
+              <Link href={`/videos/${item.id}`}>
+                <img
+                  src={Org_url + item.backdrop_path}
+                  alt={item.title}
+                  className="h-full w-auto object-cover rounded-xl"
+                />
+                <div className="absolute bottom-4 left-4 text-white text-xl font-bold bg-black/60 px-3 py-1 rounded">
+                  {item.title}
+                </div>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-      {[
-        "Continue Watching",
-        "Popular ",
-        "Top trending",
-        "New Releases",
-      ].map((title, index) => (
-        <div key={index} className="bg-black p-4 text-xl font-bold text-white">
-          <h1 className="mb-4 ml-8">{title}</h1>
-          <div className="hide-scrollbar flex overflow-scroll">
-            {movies
-              .slice(index * 20 + 20, (index + 1) * 20 + 20)
-              .map((item) => (
-                <Link
-                  href={`/videos/${item.id}`}
-                  key={item.id}
-                  className="div contents"
-                >
-                  <img
-                    src={Org_url + item.poster_path}
-                    alt=""
-                    className="m-2 h-48 rounded-lg"
-                  />
-                </Link>
-              ))}
-          </div>
-        </div>
-      ))}
+      <Carousel title="In The Spotlight" movies={movies.slice(0, 20)} />
+      <Carousel title="Trending Now" movies={movies.slice(20, 40)} />
+      <Carousel title="Popular Movies" movies={movies.slice(40, 60)} />
+      <Carousel title="Top Rated" movies={movies.slice(60, 80)} />
+      <Carousel title="New Releases" movies={movies.slice(80, 100)} />
     </div>
   ) : (
     <div className="h-screen bg-black text-white text-8xl">
